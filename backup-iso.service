@@ -6,7 +6,7 @@ ConditionPathIsMountPoint=/mnt/storage1
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/backup-iso.sh
+ExecStart=/git/caladan-backup-service/backup-iso.sh
 User=root
 Nice=19
 IOSchedulingClass=idle
