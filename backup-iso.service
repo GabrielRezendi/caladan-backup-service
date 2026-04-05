@@ -1,0 +1,20 @@
+[Unit]
+Description=Full System Backup to ISO
+Documentation=man:tar(1) man:xorrisofs(1)
+After=network.target local-fs.target
+ConditionPathIsMountPoint=/mnt/storage1
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup-iso.sh
+User=root
+Nice=19
+IOSchedulingClass=idle
+CPUSchedulingPolicy=idle
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=backup-iso
+TimeoutStartSec=4h
+
+[Install]
+WantedBy=multi-user.target

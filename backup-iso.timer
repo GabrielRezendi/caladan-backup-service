@@ -1,0 +1,13 @@
+[Unit]
+Description=Daily Full System Backup to ISO
+Requires=backup-iso.service
+
+[Timer]
+# Run daily at 02:00 AM
+OnCalendar=*-*-* 02:00:00
+# If a run was missed (e.g. machine was off), catch up when it comes back
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target
